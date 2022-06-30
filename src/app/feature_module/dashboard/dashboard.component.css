@@ -1,0 +1,178 @@
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .navbar-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+             causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+  
+  .navbar-is-mobile .navbar-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+             `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
+  mat-sidenav {
+    width: 250px !important;
+    border-right: 1px solid #eee;
+    box-shadow: 6px 0 6px rgba(0, 0, 0, .1);
+    /* background-color:rgb(63, 81, 181); */
+    overflow-x: hidden;
+  }
+  .example-tree-invisible {
+    display: none;
+  }  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  /*
+  * This padding sets alignment of the nested nodes.
+  */
+  .example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 30px;
+  }  
+  /*
+   * Padding for leaf nodes.
+   * Leaf nodes need to have padding so as to align with other non-leaf nodes
+   * under the same parent.
+   */
+  .example-tree div[role=group] > .mat-tree-node {
+    padding-left: 30px;
+  }
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .mt-2 {
+    margin-top: 2rem;
+  }  
+  .mat-spinner {
+    position: absolute;
+    z-index: 1;
+    margin-left: 40%;
+    margin-right: 60%;
+    margin-top: 20%;
+  }
+  .type-icon {
+    color: #999;
+    margin-right: 5px;
+  }
+  
+  /* -------------------------------------------------------- */
+  .saif-fixing{
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+  }
+  
+  .folder-files-icon{
+   width: 30px;   
+  }
+  
+  .mat-tree-node{
+      /* border: 1px solid black; */
+      padding-right: 10px ;
+  }
+  
+  .mat-tree-node{
+      /* cursor: help; */
+      cursor: pointer;
+  }  
+  
+  .treeNodes{
+      
+  }
+  
+  .treeNodes:hover {
+      background-color: rgba(211, 211, 211, 0.39);
+  }
+  
+  .treeNodes:active {
+      background-color: rgba(211, 211, 211, 0.39);
+  }
+  
+  .prevent-select {
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+  }
+
+
+
+
+
+
+
+
+
+  .example-container {
+    width: 150px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .example-list {
+    width: 200px;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

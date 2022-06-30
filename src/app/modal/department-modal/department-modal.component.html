@@ -1,0 +1,49 @@
+<!-- this div show when we want to delete or rename root -->
+<div *ngIf="this.showDialoge">
+    <div mat-dialog-content>
+        <h3>Can not {{this.action}} <strong>{{this.local_data.node.name}}</strong></h3>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()" mat-raised-button color="warn">Ok</button>
+    </div>
+</div>
+<!--  -->
+
+
+<div class="action-form" *ngIf="!this.showDialoge">
+    <h1 mat-dialog-title class="action-form-header"> {{action}} Department</h1>
+    <div mat-dialog-content>
+
+        <form class="example-form" [formGroup]="departmentForm" >
+            <!-- when action is remove elseTemplate will be pop up -->
+            <div *ngIf="this.action != 'remove'; else elseTemplate">
+                <p>
+                    <!-- Department Name -->
+                    <mat-form-field class="example-full-width modal-input-field">
+                        <input matInput placeholder="Department Name"  formControlName="departmentname">
+                    </mat-form-field>
+                </p>
+            </div>
+        </form>
+
+
+        <ng-template #elseTemplate>
+            Are you sure to remove this <strong>{{this.local_data.node.name}}</strong>?
+        </ng-template>
+
+    </div>
+
+
+    <div mat-dialog-actions *ngIf="action != 'remove'; else elseTemplateAction">
+        <button mat-button [disabled]="!departmentForm.valid" (click)="onSubmit()" mat-raised-button>Submit</button>
+        <button mat-button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+    </div>
+
+
+    <ng-template #elseTemplateAction>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onSubmit()" mat-raised-button>{{action}}</button>
+            <button mat-button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+        </div>
+    </ng-template>
+</div>
