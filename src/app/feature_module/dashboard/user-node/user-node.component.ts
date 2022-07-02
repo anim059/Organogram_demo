@@ -2,36 +2,33 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { NodeModalComponent } from 'src/app/modal/node-modal/node-modal.component';
-
+import { UserNodeModalComponent } from 'src/app/modal/user-node-modal/user-node-modal.component';
 
 @Component({
-  selector: 'app-tree-node',
-  templateUrl: './tree-node.component.html',
-  styleUrls: ['./tree-node.component.css']
+  selector: 'app-user-node',
+  templateUrl: './user-node.component.html',
+  styleUrls: ['./user-node.component.css']
 })
-export class TreeNodeComponent implements OnInit {
+export class UserNodeComponent implements OnInit {
 
+  @Input() node:any;
   menuTopLeftPosition =  {x: '0', y: '0'} 
 
   @ViewChild(MatMenuTrigger, { static: true })
   matMenuTrigger!: MatMenuTrigger;
 
   
-  @Input() node:any;
+ 
   done : {id:number;name:string;}[] = [];
   moveItem: number = 0;
-
   constructor(
     public matDialog: MatDialog,
-    //private organogramService : OrganogramService
   ) { }
 
   ngOnInit(): void {
     console.log(this.node)
     this.moveItem = this.done.length;
   }
-
 
   onRightClick(event: MouseEvent, item: any) { 
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
@@ -52,7 +49,7 @@ export class TreeNodeComponent implements OnInit {
 
 
 opendialoge(obj:{node:any}){
-  const dialogRef = this.matDialog.open(NodeModalComponent, {
+  const dialogRef = this.matDialog.open(UserNodeModalComponent, {
     width: '350px',
     data: obj
   });
@@ -83,6 +80,5 @@ opendialoge(obj:{node:any}){
       console.log( event.container.data[0]);
   
   }
-  
 
 }

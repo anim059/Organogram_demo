@@ -1,0 +1,112 @@
+<ngx-graph
+  [view]="[600, 600]"
+  [links]="links"
+  [nodes]="nodes"
+  [curve]="curve"
+  [layout]="layout"
+  [layoutSettings]="layoutSettings"
+  [enableZoom]="true"
+  [autoZoom]="true"
+  [draggingEnabled]="false"
+>
+  <ng-template #defsTemplate>
+    <svg:marker
+      id="arrow"
+      viewBox="0 -5 10 10"
+      refX="8"
+      refY="0"
+      markerWidth="4"
+      markerHeight="4"
+      orient="auto"
+    >
+      <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+    </svg:marker>
+  </ng-template>
+
+  
+  <ng-template #nodeTemplate let-node>
+    
+    <svg:g
+      class="node"
+      xmlns="http://www.w3.org/2000/xhtml"
+      width="150"
+      height="100"
+    >
+      <svg:foreignObject width="150" height="100">
+        <xhtml:div
+          
+          xmlns="http://www.w3.org/1999/xhtml"
+          [ngStyle]="getStyles(node)"
+        >
+        <app-user-node [node]="{node:node}"></app-user-node>
+        </xhtml:div>
+      </svg:foreignObject>
+    </svg:g>
+  </ng-template>
+
+  <ng-template #linkTemplate let-link>
+    <svg:g class="edge">
+      <svg:path
+        class="line"
+        stroke-width="2"
+        marker-end="url(#arrow)"
+      ></svg:path>
+    </svg:g>
+  </ng-template>
+</ngx-graph>
+
+
+
+
+
+
+
+<!-- 
+<ngx-graph
+  [view]="[1000, 1000]"
+  [links]="links"
+  [nodes]="nodes"
+  [curve]="curve"
+  [layout]="layout"
+  [layoutSettings]="layoutSettings"
+  [enableZoom]="false"
+  [autoZoom]="true"
+>
+<ng-template #defsTemplate>
+    <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+      <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+    </svg:marker>
+  </ng-template>
+
+  <ng-template #nodeTemplate let-node>
+    <svg:g
+      class="node"
+      xmlns="http://www.w3.org/2000/xhtml"
+      width="150"
+      height="100"
+    >
+      <svg:foreignObject width="350" height="300">
+        <xhtml:div
+          class="cardContainer"
+          xmlns="http://www.w3.org/1999/xhtml"
+          [ngStyle]="getStyles(node)"
+        >
+            <div>
+                <app-tree-node [node]="{id:node.id,role:node.data.role}"></app-tree-node>
+            </div>
+        </xhtml:div>
+      </svg:foreignObject>
+    </svg:g>
+  </ng-template>
+
+  <ng-template #linkTemplate let-link>
+    <svg:g class="edge">
+      <svg:path
+        class="line"
+        stroke-width="2"
+        marker-end="url(#arrow)"
+      ></svg:path>
+    </svg:g>
+  </ng-template>
+
+</ngx-graph> -->

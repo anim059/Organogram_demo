@@ -1,0 +1,37 @@
+<div class="action-form">
+    <h1 mat-dialog-title class="action-form-header"> Create Node</h1>
+    <div mat-dialog-content>
+
+        <form class="example-form" [formGroup]="childNodeForm" >
+            <!-- when action is remove elseTemplate will be pop up -->
+            <div>
+                <p>
+                    <!-- Department Name -->
+                    <mat-form-field class="example-full-width modal-input-field">
+                        <input matInput placeholder="Node Name"  formControlName="childNodeName">
+                    </mat-form-field>
+                </p>
+            </div>
+        </form>
+
+
+        <!-- <ng-template #elseTemplate>
+            Are you sure to remove this <strong>{{this.local_data.node.name}}</strong>?
+        </ng-template> -->
+
+    </div>
+
+
+    <div mat-dialog-actions >
+        <button mat-button [disabled]="!childNodeForm.valid" (click)="onSubmit()" mat-raised-button>Submit</button>
+        <button mat-button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+    </div>
+
+
+    <!-- <ng-template #elseTemplateAction>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onSubmit()" mat-raised-button>{{action}}</button>
+            <button mat-button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+        </div>
+    </ng-template> -->
+</div>

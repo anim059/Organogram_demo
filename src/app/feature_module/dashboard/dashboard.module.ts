@@ -10,13 +10,17 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TreeNodeComponent } from '../dashboard/treenodecompoment/tree-node/tree-node.component'
 import { TreeDiagramComponent } from '../dashboard/tree-diagram/tree-diagram.component'
+import { UserTreeDiagramComponent } from './user-tree-diagram/user-tree-diagram.component';
+import { UserNodeComponent } from './user-node/user-node.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
     DashboardComponent ,
     TreeNodeComponent,
-    TreeDiagramComponent   
+    TreeDiagramComponent,
+    UserTreeDiagramComponent,
+    UserNodeComponent
   ],
   imports: [
     CommonModule,

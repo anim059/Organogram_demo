@@ -1,7 +1,17 @@
 .node_box{
   width: 70px;
-  height: 65px;
+  height: 62px;
   border: 1px solid #7c7c7c;
+  border-radius: 50%;
+  margin-left: 22px;
+}
+
+.node_root_box{
+  width: 70px;
+  height: 62px;
+  border: 2px solid #ff0000;
+  background-color: #ff2c2cbd;
+  color:#ffffff;
   border-radius: 50%;
   margin-left: 22px;
 }

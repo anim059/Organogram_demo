@@ -1,5 +1,24 @@
-<mat-card class="node_box">
-  <h1 class="node_designation">{{node.node.label}}</h1>
-</mat-card>
+<div *ngIf="node.node.data.nodeId === 1 else childnode">
+  <mat-card class="node_root_box" (contextmenu)="onRightClick($event, {content: 0})">
+    <h1 class="node_designation">root</h1>
+  </mat-card>
+</div>
 
-  
+<ng-template #childnode>
+  <mat-card class="node_box" (contextmenu)="onRightClick($event, {content: node.node.id})">
+    <h1 class="node_designation">{{node.node.label}}</h1>
+  </mat-card>
+</ng-template>
+
+
+<div style="visibility: hidden; position: fixed;" 
+[style.left]="menuTopLeftPosition.x" 
+[style.top]="menuTopLeftPosition.y" 
+[matMenuTriggerFor]="rightMenu"></div> 
+
+
+<mat-menu #rightMenu="matMenu"> 
+  <ng-template matMenuContent let-item="item"> 
+    <button mat-menu-item (click)="opendialoge({node:node})">Create Child Node</button>
+  </ng-template> 
+</mat-menu> 

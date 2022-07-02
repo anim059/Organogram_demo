@@ -72,8 +72,10 @@
                      >Remove Department</button>
                  <button  mat-menu-item (click)="openDialoge({node:item.node,action:'update',datasource:this.TREE_DATA})"
                      >Rename Sub Department</button>
-                 <button  mat-menu-item (click)="showDesignationHeirarchy({node:item.node})"
+                 <button  mat-menu-item (click)="showDesignationHeirarchy({node:item.node},true)"
                      >Show Designation Hierarchy</button>
+                 <button  mat-menu-item (click)="showUserHeirarchy({node:item.node},true)"
+                     >Show User Hierarchy</button>
 
                  
              </ng-template>
@@ -90,9 +92,14 @@
             <div class="container-fluid">
                 <!-- <button mat-stroked-button mat-button (click)="addNewTab('Test_A')" color="warn">Add Test A File Tab</button>
             <button mat-stroked-button mat-button (click)="addNewTab('Test_B')" color="warn">Add Test B File Tab</button> -->
-                <h4>Inner Content</h4>
+            <div *ngIf="showOrganogram"> 
+              <div class="Header-container">
+                <div class="header-title">
+                  <h2>Designation Organogram</h2>
+                </div>
+              </div>
 
-                <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
+              <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
                     <div style="flex: 1 1 200px;">
                         <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
                         <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
@@ -110,7 +117,10 @@
                         </div>
                   
                       </div> -->
-                        <app-tree-diagram [departmentTreeList] = "treeNode"></app-tree-diagram>
+                     
+                        <app-tree-diagram [departmentTreeList] = "treeNode" [departmentName]="departmentName"></app-tree-diagram>
+                      
+                        
                          <!-- </div> -->
                     </div>
                     <!-- <div class="example-container" style="flex: 1 1 100px;">
@@ -127,7 +137,55 @@
                
                    
               </div>
-              
+            </div>
+
+
+            <div *ngIf="showUserOrganogram"> 
+                <div class="Header-container">
+                  <div class="header-title">
+                    <h2>User Organogram</h2>
+                  </div>
+                </div>
+  
+                <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
+                      <div style="flex: 1 1 200px;">
+                          <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
+                          <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
+                    
+                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
+                            <app-tree-node [node]="{id:1,role:'Sr.Engr'}"></app-tree-node>
+                          </div>
+                    
+                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
+                            <app-tree-node [node]="{id:2,role:'Jr.Engr'}"></app-tree-node>
+                          </div>
+                    
+                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
+                            <app-tree-node [node]="{id:3,role:'Engr'}"></app-tree-node>
+                          </div>
+                    
+                        </div> -->
+                       
+                          <app-user-tree-diagram [userRoleList]="userTreeNode"  [departmentName]="departmentName"></app-user-tree-diagram>
+                        
+                          
+                           <!-- </div> -->
+                      </div>
+                      <div class="example-container" style="flex: 1 1 100px;">
+                          <h2>User List</h2>
+                          <div
+                            cdkDropList
+                            [cdkDropListData]="todo"
+                            class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>
+                          </div>
+                      </div>
+                
+                 
+                     
+                </div>
+              </div>
               
               
               

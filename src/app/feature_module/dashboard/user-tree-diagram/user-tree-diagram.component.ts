@@ -4,18 +4,16 @@ import * as shape from "d3-shape";
 import { Employee } from 'src/app/core/model/tree/employee';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
-
 @Component({
-  selector: 'app-tree-diagram',
-  templateUrl: './tree-diagram.component.html',
-  styleUrls: ['./tree-diagram.component.scss']
+  selector: 'app-user-tree-diagram',
+  templateUrl: './user-tree-diagram.component.html',
+  styleUrls: ['./user-tree-diagram.component.scss']
 })
-export class TreeDiagramComponent implements OnInit {
+export class UserTreeDiagramComponent implements OnInit {
 
   @Input() node:any;
-  @Input() departmentName:string = "";
-  @Input() departmentTreeList:any[] = [];
-  @Input() employees: Employee[] = [];
+  @Input() departmentName : string = "";
+  @Input()userRoleList : any[] = [];
 
 
   done : {id:number;name:string;}[] = [];
@@ -25,7 +23,6 @@ export class TreeDiagramComponent implements OnInit {
   ];
 
 
-
   public nodes: Node[] = [];
   public links: Edge[] = [];
   public layoutSettings = {
@@ -33,19 +30,17 @@ export class TreeDiagramComponent implements OnInit {
   };
   public curve: any = shape.curveLinear;
   layout = "dagre";
-  
-  
 
-  constructor() {
-    
-   }
+  
+  constructor() { }
 
   ngOnChanges(): void {
     // console.log("department Name: ", this.departmentName); // logs correct data, yay!
     // this.treeNode = [];
     // this.SelectDepartment(this.departmentName);
     
-    this.treeNode = this.departmentTreeList
+    this.treeNode = this.userRoleList;
+    console.log(this.treeNode);
     this.links = [];
     this.nodes = [];
     this.storeNodeInfo(this.treeNode);
@@ -117,5 +112,4 @@ drop(event: CdkDragDrop<{id:number;name:string;}[]>) {
     console.log( event.container.data[0]);
 
 }
-
 }
