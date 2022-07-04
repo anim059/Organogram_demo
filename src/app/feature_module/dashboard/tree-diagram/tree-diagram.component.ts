@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Edge, Node } from "@swimlane/ngx-graph";
+import { Edge, Node,Layout } from "@swimlane/ngx-graph";
 import * as shape from "d3-shape";
 import { Employee } from 'src/app/core/model/tree/employee';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
@@ -29,7 +29,7 @@ export class TreeDiagramComponent implements OnInit {
   public nodes: Node[] = [];
   public links: Edge[] = [];
   public layoutSettings = {
-    orientation: "TB"
+    orientation: "TB",
   };
   public curve: any = shape.curveLinear;
   layout = "dagre";
@@ -50,8 +50,8 @@ export class TreeDiagramComponent implements OnInit {
     this.nodes = [];
     this.storeNodeInfo(this.treeNode);
     this.createEdge(this.treeNode);
-    console.log(this.nodes);
-    console.log(this.links);
+    //console.log(this.nodes);
+    //console.log(this.links);
   }
 
   ngOnInit(): void {

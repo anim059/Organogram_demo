@@ -22,15 +22,14 @@
   }
   .node_designation{
     height: 40px;
-    /* width: 74px; */
     font-size: 14px;
+    font-weight: 500;
     padding-top: 0px;
     margin-top: -17px;
     text-align: center;
-    /* border-top: 1px solid #000000; */
-    /* border-left: 1px solid #000000; */
     background-color: gainsboro;
     border-radius: 50%;
+    border-bottom: 2px solid #000000;
   }
   
   .example-container {

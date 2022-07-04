@@ -5,7 +5,7 @@
 </div>
 
 <ng-template #childnode>
-  <mat-card class="node_box" (contextmenu)="onRightClick($event, {content: node.node.id})">
+  <mat-card class="node_box" #nodeRef (contextmenu)="onRightClick($event, {content: node.node.id})">
     <h1 class="node_designation">{{node.node.label}}</h1>
   </mat-card>
 </ng-template>

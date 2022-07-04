@@ -52,8 +52,16 @@
   .cardContainer2{
     padding: 10px 10px 0 10px;
     border-radius: 50%;
-    border: 5px solid #4d148c;
-    background-color: #4d148c;
+    border: 5px solid #940404;
+    background-color: #940404;
+  }
+
+  .node_box{
+    width: 75px;
+    height: 65px;
+    border: 1px solid #7c7c7c;
+    border-radius: 50%;
+    margin-left: 22px;
   }
 
   .tree-container{

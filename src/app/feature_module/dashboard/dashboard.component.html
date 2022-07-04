@@ -71,11 +71,11 @@
                  <button  mat-menu-item (click)="openDialoge({node:item.node,action:'remove',datasource:this.TREE_DATA})"
                      >Remove Department</button>
                  <button  mat-menu-item (click)="openDialoge({node:item.node,action:'update',datasource:this.TREE_DATA})"
-                     >Rename Sub Department</button>
-                 <button  mat-menu-item (click)="showDesignationHeirarchy({node:item.node},true)"
-                     >Show Designation Hierarchy</button>
-                 <button  mat-menu-item (click)="showUserHeirarchy({node:item.node},true)"
-                     >Show User Hierarchy</button>
+                     >Rename Department</button>
+                 <button  mat-menu-item (click)="showDesignationHeirarchy(item.node.name,true)"
+                     >Designation Hierarchy</button>
+                 <button  mat-menu-item (click)="showUserHeirarchy(item.node.name,true)"
+                     >User Hierarchy</button>
 
                  
              </ng-template>
@@ -100,7 +100,7 @@
               </div>
 
               <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
-                    <div style="flex: 1 1 200px;">
+                    <div style="flex: 1 1 auto;">
                         <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
                         <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
                   
@@ -147,8 +147,8 @@
                   </div>
                 </div>
   
-                <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
-                      <div style="flex: 1 1 200px;">
+                <div style="width:100%;display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
+                      <div style="flex: 1 1 200px;width: 60%;">
                           <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
                           <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
                     
@@ -171,7 +171,11 @@
                           
                            <!-- </div> -->
                       </div>
-                      <div class="example-container" style="flex: 1 1 100px;">
+                      <mat-divider vertical style="height:auto;"></mat-divider>
+                      <div class="userList-container" style="flex: 1 1 100px; width: 40%;">
+                        <div style="background-color: #c5c5c5;border-radius: 10px;padding-top:30px;padding-left: 30px;">
+                           <app-view-organogram></app-view-organogram>
+                        </div>
                           <h2>User List</h2>
                           <div
                             cdkDropList

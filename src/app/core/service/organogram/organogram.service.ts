@@ -24,7 +24,7 @@ export class OrganogramService {
           children : [
             {
               id: 7,
-              name : "Jr.Engr",
+              name : "Jr.Engr 1",
               parentId: 6,
               children:[]
             },
@@ -35,13 +35,13 @@ export class OrganogramService {
               children:[
                 {
                   id: 10,
-                  name : "Engr 1",
+                  name : "Intern Engr 1",
                   parentId: 8,
                   children:[]
                 },
                 {
                   id: 11,
-                  name : "Engr 2",
+                  name : "Intern Engr 2",
                   parentId: 8,
                   children:[]
                 }
@@ -49,7 +49,7 @@ export class OrganogramService {
             },
             {
               id: 9,
-              name : "Engr",
+              name : "Mid.Engr 2",
               parentId: 6,
               children:[]
             },
@@ -75,36 +75,36 @@ export class OrganogramService {
         },
         {
           id: 12,
-          name : "Jr.Engr 1",
+          name : "Designation",
           parentId: 3,
           children:[
             {
               id: 16,
-              name : "Jr.Engr 1",
+              name : "Designation 1",
               parentId: 12,
               children:[]
             },
             {
               id: 17,
-              name : "Jr.Engr 2",
+              name : "Designation 2",
               parentId: 12,
               children:[]
             },
             {
               id: 18,
-              name : "Jr.Engr 3",
+              name : "Designation 3",
               parentId: 12,
               children:[]
             },
             {
               id: 19,
-              name : "Jr.Engr 4",
+              name : "Designation 4",
               parentId: 12,
               children:[]
             },
             {
               id: 20,
-              name : "Jr.Engr 5",
+              name : "Designation 5",
               parentId: 12,
               children:[]
             },

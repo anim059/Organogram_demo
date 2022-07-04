@@ -6,27 +6,17 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-user-tree-diagram',
-  templateUrl: './user-tree-diagram.component.html',
-  styleUrls: ['./user-tree-diagram.component.scss']
+  selector: 'app-view-organogram',
+  templateUrl: './view-organogram.component.html',
+  styleUrls: ['./view-organogram.component.scss']
 })
-export class UserTreeDiagramComponent implements OnInit {
+export class ViewOrganogramComponent implements OnInit {
 
   @Input() node:any;
   @Input() departmentName : string = "";
   @Input()userRoleList : any[] = [];
 
-
-  autoCenter: boolean = false; 
-  center$: Subject<boolean> = new Subject();
-
   treeViewWidth :number = 600; 
-  done : {id:number;name:string;}[] = [];
-  moveItem: number = 0;
-  treeNode :any[] = [
-    
-  ];
-
 
   public nodes: Node[] = [];
   public links: Edge[] = [];
@@ -36,7 +26,12 @@ export class UserTreeDiagramComponent implements OnInit {
   public curve: any = shape.curveLinear;
   layout = "dagre";
 
-  
+  moveItem: number = 0;
+  done : {id:number;name:string;}[] = [];
+  treeNode :any[] = [
+    
+  ];
+
   constructor() { }
 
   ngOnChanges(): void {
@@ -123,4 +118,5 @@ drop(event: CdkDragDrop<{id:number;name:string;}[]>) {
     console.log( event.container.data[0]);
 
 }
+
 }

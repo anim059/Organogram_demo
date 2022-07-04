@@ -12,6 +12,7 @@ import { TreeNodeComponent } from '../dashboard/treenodecompoment/tree-node/tree
 import { TreeDiagramComponent } from '../dashboard/tree-diagram/tree-diagram.component'
 import { UserTreeDiagramComponent } from './user-tree-diagram/user-tree-diagram.component';
 import { UserNodeComponent } from './user-node/user-node.component';
+import { ViewOrganogramComponent } from './view-organogram/view-organogram.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TreeNodeComponent,
     TreeDiagramComponent,
     UserTreeDiagramComponent,
-    UserNodeComponent
+    UserNodeComponent,
+    ViewOrganogramComponent
   ],
   imports: [
     CommonModule,

@@ -12,7 +12,29 @@ export class UserNodeModalComponent implements OnInit {
 
   local_data !: any;
   childNodeForm !: FormGroup;
-  designationList :any[] = ["Sr.Engr","Jr.Engr","Mid.Engr","Intern"]
+  designationList :any[] = [];
+  designationName :any[] = [
+    {
+      id:1,
+      designation : 'Sr.Engr',
+      pId:""
+    },
+    {
+      id:2,
+      designation : 'Jr.Engr',
+      pId:1
+    },
+    {
+      id:3,
+      designation : 'Mid.Engr',
+      pId:1
+    },
+    {
+      id:4,
+      designation : 'Intern',
+      pId:3
+    },
+  ]
   constructor(
     public dialogRef: MatDialogRef<UserNodeModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -28,7 +50,25 @@ export class UserNodeModalComponent implements OnInit {
       designationName : ['',[Validators.required]]
     })
 
-    console.log(this.local_data.node.data.departmentName);
+   
+    for(var val of this.designationName){
+       if(this.local_data.root && this.local_data.root === 'root' && val.pId === ""){
+        this.designationList.push(val.designation);
+       }else if(this.local_data.node.label === val.designation){
+         this.getDesignationList(val.id);
+         break
+       }
+    }
+   
+    console.log(this.local_data);
+  }
+
+  getDesignationList(id:number){
+    for(var val of this.designationName){
+      if(val.pId === id){
+        this.designationList.push(val.designation);
+      }
+    }
   }
 
   onSubmit(){

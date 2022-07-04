@@ -1,0 +1,89 @@
+    <ngx-graph
+     [view]="[400, 200]"
+     [links]="[
+      {
+        id: 'a',
+        source: '1',
+        target: '2'
+      },
+      {
+        id: 'b',
+        source: '1',
+        target: '3'
+      },
+      {
+        id: 'c',
+        source: '3',
+        target: '4'
+      },
+  
+    ]"
+    [nodes]="[
+      {
+        id: '1',
+        label: 'Sr.Engr'
+      },
+      {
+        id: '2',
+        label: 'Jr.Engr'
+      },
+      {
+        id: '3',
+        label: 'Mid.Engr'
+      },
+      {
+        id: '4',
+        label: 'Intern'
+      }
+    ]"
+    [curve]="curve"
+    [layout]="layout"
+    [enableZoom]="true"
+    [autoZoom]="true"
+    [autoCenter] = "true"
+    [draggingEnabled]="false"
+    [autoZoom]="true"
+  >
+    <ng-template #defsTemplate>
+      <svg:marker
+        id="arrow"
+        viewBox="0 -5 10 10"
+        refX="8"
+        refY="0"
+        markerWidth="4"
+        markerHeight="4"
+        orient="auto"
+      >
+        <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+      </svg:marker>
+    </ng-template>
+  
+    <ng-template #nodeTemplate let-node>
+      <svg:g
+        class="node"
+        xmlns="http://www.w3.org/2000/xhtml"
+        width="40"
+        height="20"
+      >
+        <svg:foreignObject width="40" height="20">
+          <div
+            class="cardContainer2"
+            matTooltip={{node.label}}
+          >
+          </div>
+        </svg:foreignObject>
+      </svg:g>
+    </ng-template>
+  
+    <ng-template #linkTemplate let-link>
+      <svg:g class="edge">
+        <svg:path
+          class="line"
+          stroke-width="2"
+          marker-end="url(#arrow)"
+        ></svg:path>
+      </svg:g>
+    </ng-template>
+  </ngx-graph>
+
+  

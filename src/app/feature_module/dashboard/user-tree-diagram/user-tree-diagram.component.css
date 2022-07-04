@@ -1,0 +1,18 @@
+.department-header-title {
+    width: 150px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .department-header-title>h2{
+    height: 6%;
+    width: 175px;
+    background-color: #ffffff;
+    padding: 11px 0px 0px 0px;
+    text-align: center;
+    margin: 0px 10px 45px 10px;
+    border-radius: 10px;
+    border-bottom: 2px solid #E71930;
+    box-shadow: 0 4px 10px 0 rgb(62 61 61 / 8%), 0 1px 8px -7px rgb(244 99 89 / 40%);
+   }

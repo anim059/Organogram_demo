@@ -209,7 +209,8 @@ export class DashboardComponent implements OnInit {
 
   moveItem : number = 0;
   todo :{id:number;name:string;}[]= [{id:1,name:'User 1'},{id:2,name:'User 2'},{id:3,name:'User 3'},{id:4,name:'User 4'},
-  {id:5,name:'User 5'},{id:6,name:'User 6'},{id:7,name:'User 7'},{id:8,name:'User 8'},{id:9,name:'User 9'},{id:10,name:'User 10'}];
+  {id:5,name:'User 5'},{id:6,name:'User 6'},{id:7,name:'User 7'},{id:8,name:'User 8'},{id:9,name:'User 9'},{id:10,name:'User 10'},
+  {id:11,name:'User 11'},{id:12,name:'User 12'},{id:13,name:'User 13'},{id:14,name:'User 14'}];
   
   @ViewChild(MatMenuTrigger, { static: true }) matMenuTrigger!: MatMenuTrigger;
 
@@ -239,12 +240,17 @@ export class DashboardComponent implements OnInit {
     this.showTreeHeirarchy();
     this.moveItem = this.todo.length;
     this.organogramService.refresh.subscribe(value=>{
-      console.log(value);
-      this.departmentList = this.organogramService.getDepartmentData();
-      this.userRoleList = this.UserOrganogramService.getUserRoleData();
-      this.showTreeHeirarchy();
-      console.log(this.departmentList);
+      console.log(this.departmentName);
+      if(value){
+        this.showDesignationHeirarchy(this.departmentName,true);
+      }
     });
+    
+    this.UserOrganogramService.refresh.subscribe(value=>{
+      if(value){
+        this.showUserHeirarchy(this.departmentName,true);
+      }
+    })
   }
 
    
@@ -259,13 +265,13 @@ export class DashboardComponent implements OnInit {
   hasChild = (_: number, node: DepNode) =>
     (!!node.children && node.children.length > 0);
 
-  showUserHeirarchy(obj:{node:DepNode},showUserOrganogram:boolean){
+  showUserHeirarchy(departName:string,showUserOrganogram:boolean){
     this.showUserOrganogram = showUserOrganogram;
-    this.departmentName = obj.node.name;
+    this.departmentName = departName;
     this.showOrganogram = false;
     this.userTreeNode = [];
     this.SelectUserListDepartment(this.departmentName);
-   
+  
   }
 
 
@@ -301,13 +307,13 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  showDesignationHeirarchy(obj:{node:DepNode},showOrganogram:boolean){
+  showDesignationHeirarchy(departName:string,showOrganogram:boolean){
     this.showOrganogram = showOrganogram;
     this.showUserOrganogram = false;
-    this.departmentName = obj.node.name;
+    this.departmentName = departName;
     this.treeNode = [];
-    console.log(obj.node.name);
-    this.SelectDepartment(obj.node.name,);
+    //console.log(obj.node.name);
+    this.SelectDepartment(departName);
   }
 
   SelectDepartment(name:string){
@@ -319,7 +325,7 @@ export class DashboardComponent implements OnInit {
       }
     }
     this.createNodeList(this.departmentList[Number(index)]);
-    console.log(this.treeNode);
+    //console.log(this.treeNode);
   }
 
 

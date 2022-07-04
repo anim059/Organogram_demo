@@ -36,10 +36,10 @@ export class TreeNodeComponent implements OnInit {
   onRightClick(event: MouseEvent, item: any) { 
     // preventDefault avoids to show the visualization of the right-click menu of the browser 
     event.preventDefault(); 
-
+    
     // we record the mouse position in our object 
-    this.menuTopLeftPosition.x = event.clientX - 500 + 'px'; 
-    this.menuTopLeftPosition.y = event.clientY - 200 + 'px'; 
+    this.menuTopLeftPosition.x = 100 + 'px'; 
+    this.menuTopLeftPosition.y = 100 + 'px'; 
 
     // we open the menu 
     // we pass to the menu the information about our object 
