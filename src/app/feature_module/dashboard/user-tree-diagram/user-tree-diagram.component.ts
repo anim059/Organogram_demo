@@ -57,9 +57,9 @@ export class UserTreeDiagramComponent implements OnInit {
   ngOnInit(): void {
     this.moveItem = this.done.length;
     if(screen.width <= 1280){
-      this.treeViewWidth = 600;
+      this.treeViewWidth = 500;
     }else{
-      this.treeViewWidth = 800;
+      this.treeViewWidth = 700;
     }
     
   }
@@ -74,7 +74,8 @@ storeNodeInfo(treeNode:any[]){
       label: tn.name,
       data : {
         nodeId : index++,
-        departmentName:this.departmentName
+        departmentName:this.departmentName,
+        color:tn.color
       }
     };
 

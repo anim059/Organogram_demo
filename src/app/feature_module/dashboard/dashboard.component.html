@@ -95,47 +95,16 @@
             <div *ngIf="showOrganogram"> 
               <div class="Header-container">
                 <div class="header-title">
-                  <h2>Designation Organogram</h2>
+                  <h2><span>Designation Organogram</span></h2>
                 </div>
               </div>
 
-              <div style="display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
-                    <div style="flex: 1 1 auto;">
-                        <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
-                        <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
-                  
-                        <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                          <app-tree-node [node]="{id:1,role:'Sr.Engr'}"></app-tree-node>
-                        </div>
-                  
-                        <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                          <app-tree-node [node]="{id:2,role:'Jr.Engr'}"></app-tree-node>
-                        </div>
-                  
-                        <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                          <app-tree-node [node]="{id:3,role:'Engr'}"></app-tree-node>
-                        </div>
-                  
-                      </div> -->
-                     
+              <div>
+
+                    <div style=" background-color: #d5d5d54c; margin:30px 50px 30px 20px; border-radius: 5px;">            
                         <app-tree-diagram [departmentTreeList] = "treeNode" [departmentName]="departmentName"></app-tree-diagram>
-                      
-                        
-                         <!-- </div> -->
                     </div>
-                    <!-- <div class="example-container" style="flex: 1 1 100px;">
-                        <h2>User List</h2>
-                        <div
-                          cdkDropList
-                          [cdkDropListData]="todo"
-                          class="example-list"
-                          (cdkDropListDropped)="drop($event)">
-                          <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>
-                        </div>
-                    </div> -->
-              
-               
-                   
+      
               </div>
             </div>
 
@@ -143,47 +112,41 @@
             <div *ngIf="showUserOrganogram"> 
                 <div class="Header-container">
                   <div class="header-title">
-                    <h2>User Organogram</h2>
+                    <h2><span>User Organogram</span></h2>
                   </div>
                 </div>
   
                 <div style="width:100%;display: flex; justify-content: space-between; gap: 40px;" cdkDropListGroup>
-                      <div style="flex: 1 1 200px;width: 60%;">
-                          <!-- <div style="display: flex; justify-content: space-between; gap: 20px;"> -->
-                          <!-- <div style="display: flex; justify-content: space-between; gap: 20px;">
-                    
-                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                            <app-tree-node [node]="{id:1,role:'Sr.Engr'}"></app-tree-node>
-                          </div>
-                    
-                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                            <app-tree-node [node]="{id:2,role:'Jr.Engr'}"></app-tree-node>
-                          </div>
-                    
-                          <div style="flex: 1 1 auto;" class="mat-elevation-z8">
-                            <app-tree-node [node]="{id:3,role:'Engr'}"></app-tree-node>
-                          </div>
-                    
-                        </div> -->
-                       
-                          <app-user-tree-diagram [userRoleList]="userTreeNode"  [departmentName]="departmentName"></app-user-tree-diagram>
-                        
+                      <div style="flex: 1 1 auto;width:50%;  background-color: #d5d5d54c; border-radius: 5px;">                      
                           
-                           <!-- </div> -->
+                        <app-user-tree-diagram [userRoleList]="userTreeNode"  [departmentName]="departmentName"></app-user-tree-diagram>
+
                       </div>
                       <mat-divider vertical style="height:auto;"></mat-divider>
-                      <div class="userList-container" style="flex: 1 1 100px; width: 40%;">
-                        <div style="background-color: #c5c5c5;border-radius: 10px;padding-top:30px;padding-left: 30px;">
-                           <app-view-organogram></app-view-organogram>
-                        </div>
-                          <h2>User List</h2>
-                          <div
-                            cdkDropList
-                            [cdkDropListData]="todo"
-                            class="example-list"
-                            (cdkDropListDropped)="drop($event)">
-                            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>
+                      <div class="userList-container">
+                          <div style="flex: 1 1 auto;width:50%;">
+                            <h2><mat-icon class="icon-display">supervisor_account</mat-icon>User List</h2>
+                            <div
+                                cdkDropList
+                                [cdkDropListData]="todo"
+                                class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>
+                            </div>
                           </div>
+                          <div class="upper-section" style="flex: 1 1 auto;width:50%;">
+                            <h2><mat-icon class="icon-display">turned_in</mat-icon>User Status</h2>
+                            <div class="user-side-section">
+                                <div class="upper-part">
+                                    <h3>Available User : <span>100</span></h3>
+                                    <h3>Assign User : <span>10</span></h3>
+                                </div>
+                                <div class="bottom-part">
+
+                                </div>
+                            </div>
+                          </div>
+                          
                       </div>
                 
                  

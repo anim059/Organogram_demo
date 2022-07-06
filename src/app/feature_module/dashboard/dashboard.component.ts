@@ -293,7 +293,8 @@ export class DashboardComponent implements OnInit {
     let node = {
       id:obj.id.toString(),
       name:obj.name,
-      parentId:obj.parentId
+      parentId:obj.parentId,
+      color:obj.backgroundColor
     }
     this.userTreeNode.push(node);
   

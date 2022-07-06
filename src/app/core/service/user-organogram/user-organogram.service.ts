@@ -47,11 +47,13 @@ export class UserOrganogramService {
       id: this.totalUser++,
       name : obj.childNode,
       parentId: obj.parentId,
+      backgroundColor : obj.color,
       children:[]
     }
+
     this.SelectDepartment(this.userRoleList,obj.parentId,obj.parentName,dname,childNodeInfo);
     this.refresh.next(true);
-    console.log(this.userRoleList);
+   
   }
 
 
@@ -64,7 +66,7 @@ export class UserOrganogramService {
       }
     }
     this.findParentNode(this.userRoleList[Number(index)],pid,pname,nodeObj);
-    
+    console.log(this.userRoleList);
   }
 
 

@@ -1,11 +1,12 @@
 .node_box{
-  width: 100px;
-  height: 87px;
-  border: 1.5px solid #000000;
-  border-radius: 50%;
-  margin: 4px 0px 0px 19px;
-  padding-top: 25px;
-  text-align: center;
+    width: 100px;
+    height: 87px;
+    border: 1.5px solid #000000;
+    border-radius: 50%;
+    margin: 4px 0px 0px 19px;
+    padding-top: 25px;
+    text-align: center;
+    word-break: break-word;
 
 }
 .node_box>h1{

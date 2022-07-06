@@ -10,7 +10,7 @@
                     <mat-form-field appearance="fill" class="example-full-width modal-input-field">
                         <mat-label>Designation</mat-label>
                         <mat-select formControlName="designationName">
-                          <mat-option *ngFor="let designation of designationList" [value]="designation">{{designation}}</mat-option>
+                          <mat-option *ngFor="let designation of designationList" [value]="designation">{{designation.designation}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                 </p>
