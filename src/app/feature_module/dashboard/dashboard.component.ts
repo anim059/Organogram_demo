@@ -25,10 +25,27 @@ export class DashboardComponent implements OnInit {
     {
       id:1,
       name: "root",
+      rootRoleNode:{
+        id: 1,
+            name: "RootRoleNode",
+            childNodes: [
+                {
+                    id: 6,
+                    name: "Chairman",
+                    childNodes: []
+                },
+                {
+                    id: 7,
+                    name: "DMD",
+                    childNodes: []
+                }
+            ]
+      },
       children: [
         {
           id:1,
           name: "Frontend",
+          rootRoleNode:{},
           children: [
           ],
           hasparent:true,
@@ -37,10 +54,12 @@ export class DashboardComponent implements OnInit {
         {
           id:2,
           name: "Backend",
+          rootRoleNode:{},
           children: [
             {
               id:1,
               name: "part 1",
+              rootRoleNode:{},
               children: [
               ],
               hasparent:true,
@@ -49,6 +68,7 @@ export class DashboardComponent implements OnInit {
             {
               id:2,
               name: "part 2",
+              rootRoleNode:{},
               children: [
               ],
               hasparent:true,
@@ -61,6 +81,7 @@ export class DashboardComponent implements OnInit {
         {
           id:3,
           name: "ECU",
+          rootRoleNode:{},
           children: [
           ],
           hasparent:true,
@@ -271,7 +292,6 @@ export class DashboardComponent implements OnInit {
     this.showOrganogram = false;
     this.userTreeNode = [];
     this.SelectUserListDepartment(this.departmentName);
-  
   }
 
 
@@ -399,7 +419,7 @@ export class DashboardComponent implements OnInit {
     console.log("done");
     console.log(event.container.data);
   
-}
+  }
 canDrop(){
   return this.todo && this.todo.length < 1;
 }

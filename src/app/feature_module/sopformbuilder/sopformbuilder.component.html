@@ -1,0 +1,91 @@
+<div class="navbar-container">
+    <mat-sidenav-container class="navbar-sidenav-container">
+
+        <!-- side navbar -->
+        <mat-sidenav mode="side" opened>
+            <div>
+                <button mat-button  mat-stroked-button color="basic" style="width:100%">
+                    <mat-icon>keyboard_backspace</mat-icon>
+                    Go Back to the Organization
+                  </button>
+            </div>
+            
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+                <!-- This is the tree node template for leaf nodes -->
+                <!-- There is inline padding applied to this node using styles. -->
+
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="treeNodes"
+                (contextmenu)="onRightClick($event, {node})">
+                    <!-- Files -->
+                    <mat-icon *ngIf="node.hasparent" class="type-icon">filter_frames</mat-icon>
+                   
+
+                    <span class="prevent-select">{{node.name}}</span>
+                </mat-tree-node>
+
+                <!-- This is the tree node template for expandable nodes -->
+                <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+
+                    <!--  -->
+                    <div class="mat-tree-node treeNodes" matTreeNodeToggle 
+                        title="{{node.name === 'root' ? 'root' : node.path+'/'+node.name}}"
+                        (contextmenu)="onRightClick($event, {node})">
+                        <!-- ************************************************************************************************* -->
+                        <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name" class="saif-fixing ">
+                            <mat-icon class="mat-icon-rtl-mirror ">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button>
+                        <!-- ************************************************************************************************* -->
+
+                        <!-- Folder Name -->
+                        <mat-icon *ngIf="node.name=='root'">stars</mat-icon>
+                        <mat-icon *ngIf="node.name !='root'" class="folder-files-icon">developer_board</mat-icon>
+                        <span class="prevent-select">{{node.name}}</span>
+                    </div>
+
+                    <!-- There is inline padding applied to this div using styles.
+                    This padding value depends on the mat-icon-button width.  -->
+                    <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+                        <ng-container matTreeNodeOutlet></ng-container>
+                    </div>
+                </mat-nested-tree-node>
+            </mat-tree>
+
+
+
+             <!-- an hidden div is created to set the position of appearance of the menu-->
+             <div style="visibility: hidden; position: fixed;" [style.left.px]="menuTopLeftPosition.x"
+             [style.top.px]="menuTopLeftPosition.y" [matMenuTriggerFor]="rightMenu"></div>
+
+
+         <!-- standard material menu -->
+         <mat-menu #rightMenu="matMenu">
+             <ng-template matMenuContent let-item="item">
+
+                 <!-- This 'Hide' button is created to handle the default selection -->
+                 <button style='display: none;' mat-menu-item
+                     >Hide</button>
+                 <button  mat-menu-item (click)="openDialoge(item.node)"
+                     >Show Form Builder</button>
+
+                 
+             </ng-template>
+         </mat-menu>
+
+        </mat-sidenav>
+
+
+        <!-- main content -->
+        <mat-sidenav-content class="sidenav-content">
+            
+            <div class="container-fluid">
+                <app-form-entity [nodeId]="currNodeId"></app-form-entity>         
+            </div>            
+        </mat-sidenav-content>
+      <!-- main content -->
+
+
+
+    </mat-sidenav-container>     
+</div>

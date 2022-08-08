@@ -69,7 +69,7 @@ opendialoge(obj:{node:any}){
 
 
   drop(event: CdkDragDrop<{id:number;name:string;}[]>) {
-    if(this.node.role != 'Sr.Engr' && this.done.length>=1){
+    if(this.done.length>=1){
       return;
     }
       transferArrayItem(

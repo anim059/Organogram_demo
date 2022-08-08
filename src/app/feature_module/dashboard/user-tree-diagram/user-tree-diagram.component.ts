@@ -14,7 +14,7 @@ export class UserTreeDiagramComponent implements OnInit {
 
   @Input() node:any;
   @Input() departmentName : string = "";
-  @Input()userRoleList : any[] = [];
+  @Input() userRoleList : any[] = [];
 
 
   autoCenter: boolean = false; 

@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { MasterLayoutComponent } from './master-layout/master-layout.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+
 //import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
@@ -12,6 +14,7 @@ import { MasterLayoutComponent } from './master-layout/master-layout.component';
   imports: [
     CommonModule,
     FormsModule,
+    ColorPickerModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
@@ -20,6 +23,7 @@ import { MasterLayoutComponent } from './master-layout/master-layout.component';
   exports: [
     CommonModule,
     FormsModule,
+    ColorPickerModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,

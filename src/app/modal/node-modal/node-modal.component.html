@@ -11,9 +11,18 @@
                         <input matInput placeholder="Node Name"  formControlName="childNodeName">
                     </mat-form-field>
                 </p>
+                <h4  style="font-weight: 500;">Choose a Color For Designation : </h4>
+                <p>
+                    <input [style.background]="color1" 
+                    [(colorPicker)]="color1" 
+                    (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" 
+                    (colorPickerClose)="onEventLog('colorPickerClose', $event)"
+                    style="width: 300px;border-radius:10px"
+                   />
+                </p>
             </div>
         </form>
-
+      
 
         <!-- <ng-template #elseTemplate>
             Are you sure to remove this <strong>{{this.local_data.node.name}}</strong>?
