@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <mat-form-field class="example-full-width form-input-field" appearance="fill">
+        <mat-label style="font-weight: 500;">{{meta.key}}</mat-label>
+        <input type="email" matInput [formControlName]="meta.key" [id]="meta.key">
+        <!-- <mat-error *ngIf="organizationInfoform.get('businessName')?.hasError('required')">
+            Business name is required
+        </mat-error> -->
+    </mat-form-field>
+</form>

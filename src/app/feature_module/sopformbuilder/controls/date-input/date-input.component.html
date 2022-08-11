@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <mat-form-field color="warn" appearance="fill" class="example-full-width form-input-field">
+        <mat-label style="font-weight: 500;">{{meta.key}}</mat-label>
+        <input  matInput  [formControlName]="meta.key" [id]="meta.key" [matDatepicker]="picker1">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker color="warn" #picker1></mat-datepicker>
+    </mat-form-field>
+</form>

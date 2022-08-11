@@ -1,0 +1,25 @@
+.form-input-field{
+    width: 100%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-info-panel{
+    width: 50%;
+    margin: 45px auto;
+    border: 1px solid #e0d7d7;
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.dialog_content{
+    width: 400px;
+    height: 700px;
+}
+.footer_section{
+    
+}

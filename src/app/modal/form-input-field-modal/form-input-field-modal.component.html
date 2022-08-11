@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Create Form Field</h2>
+<mat-dialog-content class="mat-typography dialog_content">
+  <h3>Select Input Type</h3>
+  <mat-form-field appearance="fill" class="example-full-width form-input-field">
+    <mat-label>Select</mat-label>
+    <mat-select  (selectionChange)="changeSelectData($event)">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let opt of options" [value]="opt.value" >{{opt.key}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+<div>
+  <div *ngIf="this.selectedInputType === 'user_input'" class="form-info-panel">
+
+
+    <form  [formGroup]="createInputForm">
+      <mat-form-field class="example-full-width form-input-field" appearance="fill">
+        <mat-label style="font-weight: 500;">Set Label</mat-label>
+        <input type="text" matInput formControlName="label">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width form-input-field" appearance="fill">
+        <mat-label>Select Field Type</mat-label>
+        <mat-select formControlName="controlType">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let opt of inputType" [value]="opt.value" >{{opt.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width form-input-field" appearance="fill">
+        <mat-label style="font-weight: 500;">Set Order</mat-label>
+        <input type="number" matInput formControlName="order">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width form-input-field" appearance="fill">
+        <mat-label style="font-weight: 500;">Is Required</mat-label>
+        <mat-select formControlName="required">
+          <mat-option>None</mat-option>
+          <mat-option [value]="true" >true</mat-option>
+          <mat-option [value]="false" >false</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+    </form>
+
+
+    <div mat-card-actions align="end" class="form-submit-btn">
+        <button mat-button [disabled]="!createInputForm.valid" (click)="submit()"  mat-raised-button color="warn">Submit</button>
+    </div>
+</div>
+
+</div>  

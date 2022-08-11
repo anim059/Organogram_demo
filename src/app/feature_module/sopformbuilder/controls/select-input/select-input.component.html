@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <mat-form-field appearance="fill" class="example-full-width form-input-field">
+        <mat-label>{{meta.key}}</mat-label>
+        <mat-select [formControlName]="meta.key" [id]="meta.key">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let opt of meta.options" [value]="opt.key" >{{opt.value}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

@@ -1,0 +1,48 @@
+<div>
+    <div [ngSwitch]="control.controlType">
+
+      <app-text-input
+        *ngSwitchCase="'textinput'"
+        [meta]="control"
+        [form]="form"
+      ></app-text-input>
+
+      <app-number-input
+        *ngSwitchCase="'numberinput'"
+        [meta]="control"
+        [form]="form"
+      ></app-number-input>
+
+      <app-email-input
+        *ngSwitchCase="'emailinput'"
+        [meta]="control"
+        [form]="form"
+      ></app-email-input>
+
+      <app-textarea-input
+        *ngSwitchCase="'textarea'"
+        [meta]="control"
+        [form]="form">
+      </app-textarea-input>
+
+      <app-date-input
+        *ngSwitchCase="'dateinput'"
+        [meta]="control"
+        [form]="form">
+      </app-date-input>
+
+      <app-checkbox-input
+        *ngSwitchCase="'checkboxinput'"
+        [meta]="control"
+        [form]="form">
+      </app-checkbox-input>
+
+      <app-select-input
+        *ngSwitchCase="'dropdown'"
+        [meta]="control"
+        [form]="form"
+        >
+      </app-select-input>
+      
+    </div>
+  </div>
