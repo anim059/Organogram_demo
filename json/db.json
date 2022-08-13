@@ -1,0 +1,53 @@
+{
+  "formFieldData": [
+    {
+      "id": 1,
+      "label": "firstName",
+      "controlType": "textinput",
+      "key": "firstName",
+      "data": "",
+      "required": true,
+      "order": 2
+    },
+    {
+      "id": 2,
+      "label": "lastName",
+      "controlType": "textinput",
+      "key": "lastName",
+      "data": "",
+      "required": true,
+      "order": 4
+    },
+    {
+      "id": 3,
+      "label": "country",
+      "key": "country",
+      "data": "",
+      "options": [
+        {
+          "key": "IN",
+          "value": "BD"
+        },
+        {
+          "key": "USA",
+          "value": "United States of America"
+        },
+        {
+          "key": "UK",
+          "value": "United Kingdom"
+        }
+      ],
+      "order": 8,
+      "controlType": "dropdown"
+    },
+    {
+      "id": 4,
+      "label": "Date",
+      "controlType": "dateinput",
+      "key": "Date",
+      "data": "",
+      "required": true,
+      "order": 4
+    }
+  ]
+}

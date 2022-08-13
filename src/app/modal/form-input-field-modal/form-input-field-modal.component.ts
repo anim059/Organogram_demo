@@ -10,6 +10,7 @@ import { SopformbuilderService } from 'src/app/core/service/sopformbuilder/sopfo
 })
 export class FormInputFieldModalComponent implements OnInit {
 
+  id !: number;
   inputType :any[] = [
     {name:'textinput',value:'textinput'},
     {name:'numberinput',value:'numberinput'},
@@ -33,7 +34,9 @@ export class FormInputFieldModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb : FormBuilder,
     private SopformbuilderService : SopformbuilderService
-  ) { }
+  ) {
+    dialogRef.disableClose = true;
+   }
 
   ngOnInit(): void {
     this.createInputForm = this.fb.group({
@@ -42,11 +45,12 @@ export class FormInputFieldModalComponent implements OnInit {
       order : ['',Validators.required],
       required : ['',Validators.required]
     })
-    console.log(this.selectedInputType);
+    
   }
 
-  submit(){
+  onSubmit(){
     let formResponce = {
+      id:this.id++,
       label : this.createInputForm.controls['label'].value,
       controlType : this.createInputForm.controls['controlType'].value,
       key: this.createInputForm.controls['label'].value,
@@ -55,12 +59,22 @@ export class FormInputFieldModalComponent implements OnInit {
       order : this.createInputForm.controls['order'].value
     }
     console.log(formResponce);
-    this.SopformbuilderService.insertField(formResponce);
-    this.dialogRef.close({ event: 'success'});
+    this.SopformbuilderService.insertField(formResponce).subscribe({
+      next:()=>{
+        this.SopformbuilderService.refresh.next(true);
+        this.dialogRef.close({ event: 'success'});
+      }
+    });    
   }
+  
   changeSelectData(event:any){
     this.selectedInputType = event.value;
     console.log(this.selectedInputType);
+  }
+
+  
+  closeDialog(){
+    this.dialogRef.close({event:'Cancel'});
   }
 
 }

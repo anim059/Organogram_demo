@@ -46,7 +46,10 @@
 
 
     <div mat-card-actions align="end" class="form-submit-btn">
-        <button mat-button [disabled]="!createInputForm.valid" (click)="submit()"  mat-raised-button color="warn">Submit</button>
+      <div mat-dialog-actions >
+        <button mat-button [disabled]="!createInputForm.valid" (click)="onSubmit()" mat-raised-button>Submit</button>
+        <button mat-button (click)="closeDialog()" mat-raised-button color="warn">Cancel</button>
+    </div>
     </div>
 </div>
 

@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,57 +9,42 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SopformbuilderService {
 
   
-  formFieldData :any[] = [
-    {
-      label:"firstName",
-      controlType: "textinput",
-      key: "firstName",
-      data:"",
-      required: true,
-      order: 2
-    },
-    {
-      label:"lastName",
-      controlType: "textinput",
-      key: "lastName",
-      data:"",
-      required: true,
-      order: 4
-    },
-    {
-      label:"country",
-      key: "country",
-      data: "",
-      options: [
-        { key: "IN", "value": "BD" },
-        { key: "USA", "value": "United States of America" },
-        { key: "UK", "value": "United Kingdom" }
-      ],
-      order: 8,
-      controlType: "dropdown"
-    },
-    {
-      label:"Date",
-      controlType: "dateinput",
-      key: "Date",
-      data:"",
-      required: true,
-      order: 4
-    }
-  ]
-  constructor() { }
+  formFieldData :any[] = [];
 
+  form !: FormGroup;
+
+  constructor(private http : HttpClient) { }
+
+  public refresh = new BehaviorSubject(false);
+
+
+  httpOptions = {
+    headers : new HttpHeaders({ 'content-type': 'application/json','Access-Control-Allow-Origin': '*'})
+  }
+
+
+
+  getFormFieldInfo(){
+    return this.http.get('http://localhost:3000/formFieldData');
+  }
+
+  
   insertField(obj:any){
-    this.formFieldData.push(obj);
+    return this.http.post('http://localhost:3000/formFieldData', obj,this.httpOptions)
+  }
+
+  deleteFormField(id:number){
+    return this.http.delete(`http://localhost:3000/formFieldData/${id}`,this.httpOptions)
   }
 
   toFormGroup(controls:any[]){
-    console.log(controls);
     const group : any = {};
     controls.forEach((control)=>{
       group[control.key] = control.required ? new FormControl(control.data || "" ,Validators.required) 
       : new FormControl(control.data || "");
+      
     })
+    console.log(group);
     return new FormGroup(group);
   }
 }

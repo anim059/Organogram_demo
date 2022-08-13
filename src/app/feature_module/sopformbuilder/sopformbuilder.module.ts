@@ -15,6 +15,7 @@ import { NumberInputComponent } from './controls/number-input/number-input.compo
 import { SelectInputComponent } from './controls/select-input/select-input.component';
 import { TextInputComponent } from './controls/text-input/text-input.component';
 import { TextareaInputComponent } from './controls/textarea-input/textarea-input.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TextareaInputComponent } from './controls/textarea-input/textarea-input
     DateInputComponent,
     EmailInputComponent,
     NumberInputComponent,
-    TextareaInputComponent
+    TextareaInputComponent,
+    DynamicFormComponent
   ],
   imports: [
     CommonModule,
