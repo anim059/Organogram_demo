@@ -28,10 +28,15 @@ export class DynamicFormComponent implements OnChanges {
   ngOnChanges(change:SimpleChanges):void{
       console.log(change);
       console.log(this.controls);
-    
-      this.form = this.sopformbuilderService.toFormGroup(this.controls);
-      this.formFieldData = true;
-      this.buttonDisabled = false;
+      if(this.controls === undefined || this.controls.length === 0){
+        this.formFieldData = false;
+        this.buttonDisabled = true;
+      }else{
+        this.form = this.sopformbuilderService.toFormGroup(this.controls);
+        this.formFieldData = true;
+        this.buttonDisabled = false;
+      }
+      
     
   }
 
@@ -41,7 +46,14 @@ export class DynamicFormComponent implements OnChanges {
 
 
   enableEditForm(){
+    if(this.controls.length === 0){
+      this.formFieldData = false;
+      this.buttonDisabled = true;
+      this.editformFieldData = false;
+      return;
+    }
     this.editformFieldData = this.editformFieldData ? false : true; 
+
   }
 
   createFormField(){

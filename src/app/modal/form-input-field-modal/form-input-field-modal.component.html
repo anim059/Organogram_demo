@@ -1,4 +1,11 @@
-<h2 mat-dialog-title>Create Form Field</h2>
+<div style="display: flex;justify-content: space-between;">
+  <h2 mat-dialog-title>Create Form Field </h2>
+  <button mat-icon-button color="warn" class="icon-float-right" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
 <mat-dialog-content class="mat-typography dialog_content">
   <h3>Select Input Type</h3>
   <mat-form-field appearance="fill" class="example-full-width form-input-field">
@@ -52,5 +59,4 @@
     </div>
     </div>
 </div>
-
 </div>  
